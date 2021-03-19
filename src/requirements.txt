@@ -1,0 +1,8 @@
+win32clipboard
+socket
+threading
+requests
+pynput.keyboard
+os
+subprocess
+shututil

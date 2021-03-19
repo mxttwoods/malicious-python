@@ -1,15 +1,18 @@
-''' 
+""" 
 wifi_extractor.py 
 
     - This script will extract a array of wifi credentials from a windows PC
-'''
+"""
 
 import subprocess
 from typing import List
 
 # pull data from the subproc
-data: List[str] = subprocess.check_output(
-    ["netsh", "wlan", "show", "profiles"]).decode("utf-8").split("\n")
+data: List[str] = (
+    subprocess.check_output(["netsh", "wlan", "show", "profiles"])
+    .decode("utf-8")
+    .split("\n")
+)
 
 # clean up data
 extracted_creds: List[str] = [
@@ -19,13 +22,14 @@ extracted_creds: List[str] = [
 # for each in ...
 for creds in extracted_creds:
     # pull data from subproc
-    results = subprocess.check_output(["netsh", "wlan", "show",
-                                       "profiles"]).decode("utf-8").split("\n")
+    results = (
+        subprocess.check_output(["netsh", "wlan", "show", "profiles"])
+        .decode("utf-8")
+        .split("\n")
+    )
 
     # clean up data
-    results = [
-        line.split(":")[1][1:-1] for line in results if "Key Content" in line
-    ]
+    results = [line.split(":")[1][1:-1] for line in results if "Key Content" in line]
 
     # try plz
     try:

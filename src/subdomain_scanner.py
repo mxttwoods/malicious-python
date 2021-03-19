@@ -1,8 +1,8 @@
-''' 
+""" 
 subdomain_scanner.py 
 
     - This script will scan a domain name for a set of subdomian names
-'''
+"""
 import requests
 from io import TextIOWrapper
 from typing import List

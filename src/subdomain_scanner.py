@@ -4,18 +4,20 @@ subdomain_scanner.py
     - This script will scan a domain name for a set of subdomian names
 '''
 import requests
+from io import TextIOWrapper
+from typing import List
 
 # the domain to scan for subdomains
 domain = "google.com"
 
 # read all subdomains
-file = open("subdomains.txt")
+file: TextIOWrapper = open("subdomains.txt")
 
 # read all content
-content = file.read()
+content: str = file.read()
 
 # split by new lines
-subdomains = content.splitlines()
+subdomains: List[str] = content.splitlines()
 
 # a list of discovered subdomains
 discovered_subdomains = []

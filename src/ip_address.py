@@ -8,13 +8,13 @@ import socket
 from requests import get
 
 # get hostname
-host = socket.gethostname()
+host: str = socket.gethostname()
 
 # get local ip
-local_ip = socket.gethostbyname(host)
+local_ip: str = socket.gethostbyname(host)
 
 # get public ip
-public_ip = get('https://api.ipify.org').text
+public_ip: str = get('https://api.ipify.org').text
 
 # log output
 print(f'Local IP: {local_ip}')

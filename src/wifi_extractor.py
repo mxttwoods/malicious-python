@@ -5,13 +5,14 @@ wifi_extractor.py
 '''
 
 import subprocess
+from typing import List
 
 # pull data from the subproc
-data = subprocess.check_output(["netsh", "wlan", "show",
+data: List[str] = subprocess.check_output(["netsh", "wlan", "show",
                                 "profiles"]).decode("utf-8").split("\n")
 
 # clean up data
-extracted_creds = [
+extracted_creds: List[str] = [
     line.split(":")[1][1:-1] for line in data if "All User Profile" in line
 ]
 

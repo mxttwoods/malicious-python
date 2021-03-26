@@ -146,12 +146,12 @@ with winreg.ConnectRegistry(None, winreg.HKEY_LOCAL_MACHINE) as hkey:
                             break
                 except WindowsError:
                     pass
-        except:
+        except SystemError:
             pass
 
 # Code to disable and enable Wireless devicess
 run_disable_enable = input(
-    "Do you want to disable and reenable your wireless device(s). Press Y or y to continue:"
+    "Do you want to disable and re-enable your wireless device(s). Press Y or y to continue:"
 )
 # Changes the input to lowercase and compares to y. If not y the while function which contains the last part will never run.
 if run_disable_enable.lower() == "y":

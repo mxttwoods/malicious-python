@@ -12,7 +12,7 @@ from typing import Pattern
 # Regular Expression Pattern to extract the number of ports you want to scan.
 # You have to specify <lowest_port_number>-<highest_port_number> (ex 10-100)
 port_range_pattern: Pattern[str] = re.compile("([0-9]+)-([0-9]+)")
-# Initialising the port numbers, will be using the variables later on.
+# Initializing the port numbers, will be using the variables later on.
 port_min = 0
 port_max = 65535
 
@@ -30,7 +30,7 @@ while True:
         # The following line will only execute if the ip is valid.
         print("You entered a valid ip address.")
         break
-    except:
+    except SystemError:
         print("You entered an invalid ip address")
 
 while True:
@@ -72,7 +72,7 @@ for port in range(port_min, port_max + 1):
             # If the following line runs then then it was successful in connecting to the port.
             open_ports.append(port)
 
-    except:
+    except SystemError:
         # We don't need to do anything here. If we were interested in the closed ports we'd put something here.
         pass
 

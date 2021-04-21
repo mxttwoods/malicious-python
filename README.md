@@ -1,12 +1,6 @@
 # malicious-python
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Twitter: mxttwoods](https://img.shields.io/twitter/follow/mxttwoods.svg?style=social)](https://twitter.com/mxttwoods)
-
-- [malicious-python](#malicious-python)
-  - [Overview](#overview)
-  - [Author](#author)
-  - [License](#license)
 
 ## Overview
 
